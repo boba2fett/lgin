@@ -1,0 +1,65 @@
+#!/usr/bin/env python3
+import json
+import sys
+import os
+
+def eprint(*args, **kwargs):
+    print(*args, file=sys.stderr, **kwargs)
+
+def write_changes(id, new, success):
+    f=open(f"save/{id}/links.json","w")
+    f.write(json.dumps(new, indent=4))
+    f.close()
+    print(success)
+    
+
+def add_link(id, insert_name, insert_href, insert_category):
+    try:
+        os.mkdir(f"save/{id}")
+    except:
+        pass
+    try:
+        f = open(f"save/{id}/links.json")
+    except:
+        f = open(f"save/{id}/links.json", "w")
+        f.write("[]")
+        f.close()
+        f = open(f"save/{id}/links.json")
+    current = json.loads(f.read())
+    for category in current:
+        if category['name'].startswith(insert_category):
+            for link in category['links']:
+                if link['name'] == insert_name:
+                    eprint(f"Link {insert_name} already exists in category: {category['name']}")
+                    return
+            category['links'] += [{
+                "name":insert_name,
+                "href":insert_href
+                }]
+            write_changes(id, current, f'Added: {category} > {insert_name}: "{insert_href}"')
+            return
+    current += [{
+        "name":insert_category,
+        "links":
+        [
+            {
+                "name":insert_name,
+                "href":insert_href
+            }
+        ]
+    }]
+    f.close()
+    write_changes(id, current, f'Added: {insert_category} > {insert_name}: "{insert_href}"')
+            
+
+
+def main(id: ("internal id"), name: ("name of the link to display or search for"), href: ("the link itself"), category: ("category to sort under", 'option', 'c')):
+    "adds a link"
+    if not category:
+        category = "no-category"
+    add_link(id, name, href, category)
+
+
+if __name__ == '__main__':
+    import plac
+    plac.call(main)

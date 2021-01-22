@@ -1,0 +1,8 @@
+{
+    "HOST_NAME" : "sp-lgin-commserver",
+    "PORT_NUMBER" : 80,
+    "href_token":"UwdvuTOrmvQ00nMuhFfKj16PiiEcAEdbsD9FoeogPIg",
+    "jwtkey": "THIS IS USED TO SIGN AND VERIFY JWT TOKENS, REPLACE IT WITH YOUR OWN SECRET, IT CAN BE ANY STRING",
+    "api_secret": "OMrzW47KzJNF0xozkrVb0tNk4bw2opqkDb6fwKCKg3Y",
+    "api_server": "http://lgin-api:4001/api"
+}

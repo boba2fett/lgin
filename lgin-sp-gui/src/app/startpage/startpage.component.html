@@ -1,0 +1,21 @@
+<div class="shell">
+    <pre class="shell-content" #target>
+<div class="shell-logo">
+_      _____  _____ _             _                             _   <span></span>
+| |    / __  \/  ___| |           | |                           | | <span></span>
+| |__  `' / /'\ `--.| |_ __ _ _ __| |_ _ __   __ _  __ _  ___  / __)<span></span>
+| '_ \   / /   `--. \ __/ _` | '__| __| '_ \ / _` |/ _` |/ _ \ \__ \<span></span>
+| |_) |./ /___/\__/ / || (_| | |  | |_| |_) | (_| | (_| |  __/ (   /<span></span>
+|_.__/ \_____/\____/ \__\__,_|_|   \__| .__/ \__,_|\__, |\___|  |_| <span></span>
+                                        | |           __/ |           <span></span>
+                                        |_|          |___/            <span></span>
+</div>
+<div *ngIf="shellContent"><div *ngFor="let content of shellContent"><div class="shell-input"><label class="shell-prompt">{{genPrompt()}}</label><div><p class="shell-cmd cmd-out">{{content.cmd}}</p></div></div><p class="shell-stdout">{{content.stdout}}</p></div></div>
+</pre>
+    <div class="shell-input">
+        <label class="shell-prompt">{{shellPrompt}}</label>
+        <div>
+            <input class="shell-cmd" #inpute [(ngModel)]="shellCmd" (keydown)="onShellCmdKeyDown($event)"/>
+        </div>
+    </div>
+</div>

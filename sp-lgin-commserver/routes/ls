@@ -1,0 +1,28 @@
+#!/usr/bin/env python3
+import os
+
+def ls(id):
+    try:
+        os.mkdir(f"save/{id}")
+    except:
+        pass
+    try:
+        f = open(f"save/{id}/links.json")
+    except:
+        f = open(f"save/{id}/links.json", "x")
+        f.write("[]")
+        f.close()
+        f = open(f"save/{id}/links.json")
+    while l:=f.readline():
+        print(l, end="")
+
+def main(id: ("internal id"), name: ("name of the link to display or search for"), category: ("category to sort under", 'option', 'c')):
+    "adds a link"
+    if not category:
+        category = ""
+    ls(id)
+
+
+if __name__ == '__main__':
+    import plac
+    plac.call(main)

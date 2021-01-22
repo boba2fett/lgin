@@ -1,0 +1,9 @@
+#!/bin/bash
+FILE=routes/musicstate
+if [ -f "$FILE" ]; then
+    rm routes/musicstate
+else
+    echo "#!/bin/bash" > routes/musicstate
+    chmod +x routes/musicstate
+fi
+echo "Music will be stopped/paused"

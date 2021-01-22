@@ -15,13 +15,7 @@ services:
           - lgin-sqldata:/var/opt/sqlserver/data
           - lgin-sqllog:/var/opt/sqlserver/log
           - lgin-sqlbackup:/var/opt/sqlserver/backup
-  lgin-gui:
-    container_name: lgin-gui
-    build: lgin-gui/
-    stdin_open: true
-    tty: true
-    depends_on:
-      - lgin-api
+
   lgin-api:
     container_name: lgin-api
     build: lgin-api/
@@ -29,18 +23,41 @@ services:
     tty: true
     depends_on:
       - lgin-sqlserver
-  lgin-proxy:
-    container_name: lgin-proxy
-    build: lgin-proxy/
+
+  sp-lgin-commserver:
+    container_name: sp-lgin-commserver
+    build: sp-lgin-commserver/
+    stdin_open: true
+    tty: true
+    volumes:
+      - sp-lgin-save:/app/save
+    depends_on: 
+      - lgin-api
+
+  lgin-sp-gui:
+    container_name: lgin-sp-gui
+    build: lgin-sp-gui/
+    stdin_open: true
+    tty: true
+    depends_on:
+      - lgin-api
+      - sp-lgin-commserver
+
+  sp-lgin-proxy:
+    container_name: sp-lgin-proxy
+    build: sp-lgin-proxy/
     ports:
         - 80:80
         - 443:443
     depends_on:
-      - lgin-gui
+      - sp-lgin-commserver
+      - lgin-sp-gui
       - lgin-api
+
 volumes:
   lgin-sqlsystem:
   lgin-sqldata:
   lgin-sqllog:
   lgin-sqlbackup:
+  sp-lgin-save:
    

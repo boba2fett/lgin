@@ -1,0 +1,58 @@
+#!/usr/bin/env python3
+import json
+import os
+import sys
+
+if os.getenv('sp-commserver-env')=="dev":
+    with open('settings.dev.json', 'r') as json_file:
+        config = json.load(json_file)
+        token = config["href_token"]
+else:
+    with open('settings.json', 'r') as json_file:
+        config = json.load(json_file)
+        token = config["href_token"]
+
+def eprint(*args, **kwargs):
+    print(*args, file=sys.stderr, **kwargs)
+
+def redirect(href):
+    print(token,href)
+
+def get_link(id, sname, scategory):
+    candidates=list()
+    try:
+        os.mkdir(f"save/{id}")
+    except:
+        pass
+    try:
+        f = open(f"save/{id}/links.json")
+    except:
+        f = open(f"save/{id}/links.json", "w")
+        f.write("[]")
+        f.close()
+        f = open(f"save/{id}/links.json")
+    current = json.loads(f.read())
+    for category in current:
+        if category['name'].startswith(scategory) or scategory == "":
+            for link in category['links']:
+                if link['name'].startswith(sname):
+                    candidates += [link]
+    if len(candidates) == 0:
+        print("Not Found!")
+    elif len(candidates) > 1:
+        print("Candidates:")
+        print(json.dumps(candidates, indent=4))
+    elif len(candidates) == 1:# uneccesary but important
+        redirect(candidates[0]["href"])
+
+
+def main(id: ("internal id") ,name: ("name of the link to display or search for"), category: ("category to sort under", 'option', 'c')):
+    "adds a link"
+    if not category:
+        category = ""
+    get_link(id, name, category)
+
+
+if __name__ == '__main__':
+    import plac
+    plac.call(main)

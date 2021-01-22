@@ -1,0 +1,22 @@
+GET http://localhost:6000/commserver/info?args=1 HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE2MTAxMzgwOTIsImV4cCI6MTYxMDc0Mjg5MiwiaWF0IjoxNjEwMTM4MDkyfQ.GH4oPTzUP9K5muUKY-A3vGItcBplezDeXCV6THvg-Uo
+
+###
+
+GET http://localhost:6000/commserver/ls?args=1 HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE2MTAxMzgwOTIsImV4cCI6MTYxMDc0Mjg5MiwiaWF0IjoxNjEwMTM4MDkyfQ.GH4oPTzUP9K5muUKY-A3vGItcBplezDeXCV6THvg-Uo
+
+###
+
+GET http://localhost:6000/commserver/l?args=p HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE2MTAxMzgwOTIsImV4cCI6MTYxMDc0Mjg5MiwiaWF0IjoxNjEwMTM4MDkyfQ.GH4oPTzUP9K5muUKY-A3vGItcBplezDeXCV6THvg-Uo
+
+
+###
+
+GET http://localhost:6000/commserver/add?args=pommes https://b2f.ddns.org/ HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE2MTAxMzgwOTIsImV4cCI6MTYxMDc0Mjg5MiwiaWF0IjoxNjEwMTM4MDkyfQ.GH4oPTzUP9K5muUKY-A3vGItcBplezDeXCV6THvg-Uo

@@ -1,0 +1,70 @@
+.shell {
+    background: #1a1a1a;
+    max-width: 99vw;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+}
+
+.shell-content {
+    height: 80vh;
+    //overflow: scroll;
+}
+
+.shell-stdout {
+    color: #eee;
+}
+
+.cmd-out {
+    margin-top: 0%;
+}
+
+.shell-output {
+    display: flex;
+}
+
+.shell-prompt {
+    font-weight: bold;
+    color: #75DF0B;
+}
+
+.shell-input {
+    display: flex;
+    box-shadow: 0 -1px 0 rgba(0, 0, 0, .3);
+    border-top: rgba(255, 255, 255, .05) solid 1px;
+}
+
+.shell-logo {
+    font-weight: bold;
+    color: #FF4180;
+    text-align: center;
+}
+
+.shell-input input {
+    outline: none;
+}
+
+.shell-input div {
+    flex-grow: 1;
+    align-items: stretch;
+}
+
+.shell-input > label {
+    flex-grow: 0;
+    display: block;
+    padding: 0 5px;
+    height: 30px;
+    line-height: 30px;
+}
+
+.shell-input .shell-cmd {
+    height: 30px;
+    line-height: 30px;
+    border: none;
+    background: transparent;
+    color: #eee;
+    font-family: monospace;
+    font-size: 10pt;
+    width: 100%;
+    align-self: center;
+}
