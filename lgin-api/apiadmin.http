@@ -1,0 +1,66 @@
+POST http://localhost:4000/api/users/authenticate HTTP/1.1
+content-type: application/json
+
+{
+    "username": "Imperator",
+    "password": "ThisIsMadnessNoThisIsSparta!"
+}
+
+###
+
+GET http://localhost:4000/api/users HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE2MTAxMzgwOTIsImV4cCI6MTYxMDc0Mjg5MiwiaWF0IjoxNjEwMTM4MDkyfQ.GH4oPTzUP9K5muUKY-A3vGItcBplezDeXCV6THvg-Uo
+
+###
+GET http://localhost:4000/api/groups HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE2MTAxMzgwOTIsImV4cCI6MTYxMDc0Mjg5MiwiaWF0IjoxNjEwMTM4MDkyfQ.GH4oPTzUP9K5muUKY-A3vGItcBplezDeXCV6THvg-Uo
+
+###
+
+POST http://localhost:4000/api/groups/add HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE2MTAxMzgwOTIsImV4cCI6MTYxMDc0Mjg5MiwiaWF0IjoxNjEwMTM4MDkyfQ.GH4oPTzUP9K5muUKY-A3vGItcBplezDeXCV6THvg-Uo
+
+{
+    "name": "sdfasdfasdf"
+}
+
+###
+
+GET http://localhost:4000/api/groups/1/members HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE2MTAxMzgwOTIsImV4cCI6MTYxMDc0Mjg5MiwiaWF0IjoxNjEwMTM4MDkyfQ.GH4oPTzUP9K5muUKY-A3vGItcBplezDeXCV6THvg-Uo
+
+###
+
+GET http://localhost:4000/api/users/1/groups HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE2MTAxMzgwOTIsImV4cCI6MTYxMDc0Mjg5MiwiaWF0IjoxNjEwMTM4MDkyfQ.GH4oPTzUP9K5muUKY-A3vGItcBplezDeXCV6THvg-Uo
+
+###
+
+GET http://localhost:4000/api/users/1/usergroups HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE2MTAxMzgwOTIsImV4cCI6MTYxMDc0Mjg5MiwiaWF0IjoxNjEwMTM4MDkyfQ.GH4oPTzUP9K5muUKY-A3vGItcBplezDeXCV6THvg-Uo
+
+###
+
+POST http://localhost:4000/api/users/1/addGroup HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE2MTAxMzgwOTIsImV4cCI6MTYxMDc0Mjg5MiwiaWF0IjoxNjEwMTM4MDkyfQ.GH4oPTzUP9K5muUKY-A3vGItcBplezDeXCV6THvg-Uo
+
+{
+    "groupId": 2
+}
+
+###
+
+POST http://localhost:4000/api/users/1/addGroups HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE2MTAxMzgwOTIsImV4cCI6MTYxMDc0Mjg5MiwiaWF0IjoxNjEwMTM4MDkyfQ.GH4oPTzUP9K5muUKY-A3vGItcBplezDeXCV6THvg-Uo
+
+{
+    "groupIds": [2]
+}
