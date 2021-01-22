@@ -1,0 +1,67 @@
+
+POST http://localhost:5000/api/users/register HTTP/1.1
+content-type: application/json
+
+{
+    "username": "a2",
+    "password": "aaaaaaaaaa"
+}
+
+###
+
+POST http://localhost:5000/api/users/authenticate HTTP/1.1
+content-type: application/json
+
+{
+    "username": "a",
+    "password": "aaaaaaaaaa"
+}
+
+###
+
+GET http://localhost:5000/api/users HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE2MDk5NjkyOTcsImV4cCI6MTYxMDU3NDA5NywiaWF0IjoxNjA5OTY5Mjk3fQ.YsNMciVIQwYRPLsALNk80fY8DvwCUpiDDm28b3m4t5k
+
+###
+GET http://localhost:5000/api/groups HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE2MDk5NjkyOTcsImV4cCI6MTYxMDU3NDA5NywiaWF0IjoxNjA5OTY5Mjk3fQ.YsNMciVIQwYRPLsALNk80fY8DvwCUpiDDm28b3m4t5k
+
+###
+
+POST http://localhost:5000/api/groups/add HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE2MDk5NjkyOTcsImV4cCI6MTYxMDU3NDA5NywiaWF0IjoxNjA5OTY5Mjk3fQ.YsNMciVIQwYRPLsALNk80fY8DvwCUpiDDm28b3m4t5k
+
+{
+    "name": "admin2"
+}
+
+###
+
+GET http://localhost:5000/api/groups/2/members HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE2MDk5NjkyOTcsImV4cCI6MTYxMDU3NDA5NywiaWF0IjoxNjA5OTY5Mjk3fQ.YsNMciVIQwYRPLsALNk80fY8DvwCUpiDDm28b3m4t5k
+
+###
+
+GET http://localhost:5000/api/users/1/groups HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE2MDk5NjkyOTcsImV4cCI6MTYxMDU3NDA5NywiaWF0IjoxNjA5OTY5Mjk3fQ.YsNMciVIQwYRPLsALNk80fY8DvwCUpiDDm28b3m4t5k
+
+###
+
+GET http://localhost:5000/api/users/1/usergroups HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE2MDk5NjkyOTcsImV4cCI6MTYxMDU3NDA5NywiaWF0IjoxNjA5OTY5Mjk3fQ.YsNMciVIQwYRPLsALNk80fY8DvwCUpiDDm28b3m4t5k
+
+###
+
+POST http://localhost:5000/api/users/1/addGroup HTTP/1.1
+content-type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1bmlxdWVfbmFtZSI6IjEiLCJuYmYiOjE2MDk5NjkyOTcsImV4cCI6MTYxMDU3NDA5NywiaWF0IjoxNjA5OTY5Mjk3fQ.YsNMciVIQwYRPLsALNk80fY8DvwCUpiDDm28b3m4t5k
+
+{
+    "groupId": 1
+}
