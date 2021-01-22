@@ -1,3 +1,11 @@
+<div class="custom-navbar" *ngIf="categories">
+    <nav class="navbar navbar-expand navbar-dark bg-dark custom-nav"  *ngFor="let category of categories">
+        <label class="category-name">{{category.name}}</label>
+        <div class="navbar-nav" *ngFor="let link of category.links">
+            <a class="nav-item nav-link" [href]=link.href >{{link.name}}</a>
+        </div>
+    </nav>
+</div>
 <div class="shell">
     <pre class="shell-content" #target>
 <div class="shell-logo">

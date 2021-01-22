@@ -19,6 +19,7 @@ export class StartpageComponent implements OnInit, AfterViewChecked {
   shellContent: Cmd[];
   shellPrompt = "startpage@shell#";
   shellCmd = "";
+  categories;
 
   @ViewChild('target') private myScrollContainer: ElementRef;
   @ViewChild('inpute') private myInput: ElementRef;
@@ -26,7 +27,18 @@ export class StartpageComponent implements OnInit, AfterViewChecked {
   constructor(private accountService: AccountService) { }
 
   ngOnInit(): void {
+    this.loadCategories();
     this.updatePrompt();
+  }
+
+  loadCategories(){
+    this.accountService.getCmd("ls","").pipe().subscribe({next: (response: any) => {
+      console.log(response.stdout);
+      console.log(JSON.parse(response.stdout));
+      this.categories = JSON.parse(response.stdout);
+    },
+    error: error => {}
+  });
   }
 
   ngAfterViewChecked() {        
@@ -76,6 +88,9 @@ export class StartpageComponent implements OnInit, AfterViewChecked {
             this.insertStdout(command,response.stdout);
             if (response.stderr) {
               this.insertStdout(command,response.stderr);
+            }
+            if (cmd=="add"){
+              this.loadCategories();
             }
         },
         error: error => {

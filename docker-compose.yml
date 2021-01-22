@@ -1,28 +1,14 @@
 version: '3.1'
 
 services:
-  lgin-sqlserver:
-    container_name: lgin-sqlserver
-    image: mcr.microsoft.com/mssql/server:2019-latest
-    environment:
-      - ACCEPT_EULA=Y
-      - SA_PASSWORD=mWe92cBCMA5M
-      - MSSQL_DATA_DIR=/var/opt/sqlserver/data
-      - MSSQL_LOG_DIR=/var/opt/sqlserver/log
-      - MSSQL_BACKUP_DIR=/var/opt/sqlserver/backup
-    volumes: 
-          - lgin-sqlsystem:/var/opt/mssql/
-          - lgin-sqldata:/var/opt/sqlserver/data
-          - lgin-sqllog:/var/opt/sqlserver/log
-          - lgin-sqlbackup:/var/opt/sqlserver/backup
 
   lgin-api:
     container_name: lgin-api
     build: lgin-api/
     stdin_open: true
     tty: true
-    depends_on:
-      - lgin-sqlserver
+    volumes:
+     - lgin-sqlite:/app/db
 
   sp-lgin-commserver:
     container_name: sp-lgin-commserver
@@ -55,9 +41,6 @@ services:
       - lgin-api
 
 volumes:
-  lgin-sqlsystem:
-  lgin-sqldata:
-  lgin-sqllog:
-  lgin-sqlbackup:
+  lgin-sqlite:
   sp-lgin-save:
    
